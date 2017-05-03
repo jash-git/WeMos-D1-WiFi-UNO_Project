@@ -1,0 +1,1 @@
+(function(w){var s=w.scupioads,i=0,m=s.length;for(;i<m;i+=1){if(s[i].cid==="12619"){s[i].layout="m=1&s=0,4,158,598,ffffff,20,ffffff,3,5,9,2,10,4,0,-1,1,,CM,,,,-1,,8,1,1,0&fs=ffffff&shf=http://www.scupio.com&ssf=fsz:11pt,lh:18px,c:006ab4,txd:n&scf=fsz:10pt,lh:18px,c:333333,txd:n&suf=&sif=&pif=90,90,3&si=160,600,17;20&p2=";}}}(window));

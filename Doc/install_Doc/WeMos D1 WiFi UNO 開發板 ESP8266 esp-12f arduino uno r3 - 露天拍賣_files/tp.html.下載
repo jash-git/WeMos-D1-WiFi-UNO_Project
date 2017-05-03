@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)http://img.scupio.com/html/tp.html?sc-1493773052774-984867651122 -->
+<html style="width: 100%; height: 100%"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" src="./adcall.aspx.下載"></script>
+<script src="./jquery.min.js.下載"></script>
+<script type="text/javascript" async="" src="./sync.下載"></script></head>
+<body style="width: 100%; height: 100%; margin: 0;">
+<div style="width: 100%; height: 100%" id="ad-hotel"><!-- BEGIN JS TAG - TW/Scupio_Desktop_News_160x600_8.5 < - DO NOT MODIFY --><script src="./ttj.下載" type="text/javascript"></script><!-- END TAG --><script language="javascript" src="./ttj(1).下載"></script><!-- Creative 56705841 served by Member 1841 via AppNexus. --><ins class="scupioadslot" style="display: inline-block; height: 100%; width: 100%;" data-sca-custom="lQgNGg88RCNICgxsUmtaQWdZd1JpOU8QohIYGCDLYjIECFUYCDoDCLRCQgMIrBtI4KQKUgtQaWMyMF9YYXhpc1iV1PSXp8Ck6ghiBE4wMjhqF0NYUjIwMTcwNDE3MDgyMjA5NzQ5OTczcB56AlBDggEiMDE4MzAwNTk3ZDliMmZlNzExODBiOTFjODcyYzczMzVkMw" data-sca-responsive="auto" data-sca-checked="1" data-sca-hidden="0">
+</ins>
+<script async="" src="./ad.js(1).下載"></script>
+<script type="application/javascript" src="./tagr_lib_learn_tw_v3.js.下載"></script><iframe src="./async_usersync.html.下載" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" style="position:absolute;overflow:hidden;clip:rect(0 0 0 0);height:1px;width:1px;margin:-1px;padding:0;border:0;"></iframe></div>
+<script>
+(function () {
+    var p = window.parent,
+        $adHotel = jQuery(document.getElementById('ad-hotel')),
+        third_party_src_id = decodeURIComponent(location.search.slice(1)),
+        custom,
+        track_array,
+        track,
+        delivery,
+        waiting_time = 0,
+        wait_unit = 500,
+        loop,
+        send_log = window.JSON && window.JSON.stringify && Math.random() > 0.95 && p.flag.IsMobile,
+        detect_xaxis,
+        detect_time = 0,
+        detect_unit = 50,
+        passback = 0,
+        PC_TIMEOUT = p.flag.atf ? 1300 : 3000,
+        MOBILE_TIMEOUT = p.flag.atf ? 2500 : 4000,
+        XAXIS_TIMEOUT = p.flag.IsMobile ? MOBILE_TIMEOUT : PC_TIMEOUT,
+        index = $(window).width() + 'x' + $(window).height(),
+        snippet_array = p.thirdPartySnippet[index],
+        snippet = p.thirdPartySnippet[third_party_src_id] || snippet_array[Math.floor((Math.random() * 100) + 1) % snippet_array.length];
+
+    // prohibit write
+    document.write = function(element) {
+        $adHotel.append(element);
+    };
+
+    delivery = function (src) {
+        var script = document.createElement('script'),
+            scriptNode = document.getElementsByTagName('script')[0];
+
+        script.src = src + '&cb=' + Math.random();
+        scriptNode.parentNode.insertBefore(script, scriptNode);
+    };
+
+    loop_check = function () {
+        var imgs = document.getElementsByTagName('img'),
+            iframes = document.getElementsByTagName('iframe'),
+            divs = document.getElementsByTagName('div'),
+            imp,
+            no_scupio = document.getElementsByClassName('scupioadslot').length === 0,
+            anxv = document.getElementsByName('anxv').length > 0,
+            iframe_logic = iframes.length > 1 || (iframes.length === 1 && typeof iframes[0].src.indexOf === 'function' && iframes[0].src.indexOf('acdn.adnxs.com') === -1),
+            img_logic = imgs.length > 1 || (imgs.length === 1 && imgs[0].src !== ''),
+            div_logic = (divs.length > 2) || (divs.length === 2 && divs[1].getAttribute('name') !== 'anxv'),
+            script_logic = document.getElementsByTagName('script').length > 3,
+            criteo_iframe = $adHotel.children().length === 1 && iframes.length === 1;
+
+        waiting_time += (wait_unit / 1000);
+        if (waiting_time > 5) {
+            clearInterval(loop);
+            if (send_log) {
+                //delivery('//u.scupio.com/event?tag=xaxis&log=' + encodeURIComponent(JSON.stringify({x_render: 'timeout'})))
+            }
+        }
+        if (no_scupio && (iframe_logic || img_logic || div_logic || criteo_iframe || (script_logic && anxv))) { // render
+            clearInterval(loop);
+            if (send_log) {
+                //delivery('//u.scupio.com/event?tag=xaxis&log=' + encodeURIComponent(JSON.stringify({x_render: waiting_time})))
+            }
+        } else if (!no_scupio) {
+            clearInterval(loop);
+        }
+    };
+
+    detect_xaxis = function () {
+        var imgs = document.getElementsByTagName('img'),
+            iframes = document.getElementsByTagName('iframe'),
+            divs = document.getElementsByTagName('div'),
+            imp,
+            no_scupio = document.getElementsByClassName('scupioadslot').length === 0,
+            anxv = document.getElementsByName('anxv').length > 0,
+            iframe_logic = iframes.length > 1 || (iframes.length === 1 && typeof iframes[0].src.indexOf === 'function' && iframes[0].src.indexOf('acdn.adnxs.com') === -1),
+            img_logic = imgs.length > 1 || (imgs.length === 1 && imgs[0].src !== ''),
+            div_logic = (divs.length > 2) || (divs.length === 2 && divs[1].getAttribute('name') !== 'anxv'),
+            script_logic = document.getElementsByTagName('script').length > 3,
+            criteo_iframe = $adHotel.children().length === 1 && iframes.length === 1,
+            log_filter = img_logic && imgs.length > 1;
+
+        detect_time += detect_unit;
+        if (detect_time >= XAXIS_TIMEOUT) {
+            return;
+        }
+        if (no_scupio && (iframe_logic || img_logic || div_logic || criteo_iframe || (script_logic && anxv))) { // render
+            parent.postMessage('atf_rendered', document.referrer);
+            // send imp
+            if (track && track.onImpression && track.onImpression.length > 0) {
+                if (send_log && log_filter) {
+                   delivery('//u.scupio.com/event?tag=xaxis&log=' + encodeURIComponent(JSON.stringify({render:true, html: document.body.innerHTML})));
+                }
+                imp = track.onImpression[0].url;
+                delivery(imp.substring(imp.indexOf('://') + 1));
+                track.onImpression = [];
+            }
+        } else if (no_scupio) {
+            setTimeout(detect_xaxis, detect_unit);
+            if (detect_time >= XAXIS_TIMEOUT && passback === 0) {
+                passback = 1;
+                if (send_log) {
+                   //delivery('//u.scupio.com/event?tag=xaxis&log=' + encodeURIComponent(JSON.stringify({render:false, html: document.body.innerHTML})));
+                }
+
+                $adHotel.html('');
+                if (custom.indexOf('lQgNGg88RCNI') === 0) { // for atf
+                    parent.postMessage('atf_callback', document.referrer);
+                } else {
+                    $adHotel.html('<ins class="scupioadslot" style="display:inline-block;width:0px;height:0px;" data-sca-pub="lRsJGA0n" data-sca-web="2751" data-sca-category="6" data-sca-cid="14547" data-sca-responsive="auto"></ins><scr' + 'ipt async src="//img.scupio.com/js/ad.js"></scr' + 'ipt>');
+                }
+            }
+        }
+    };
+    $adHotel.append(snippet);
+
+    // for xaxis
+    if (p.flag && p.flag.slogo === false) {
+        custom = snippet.slice(snippet.indexOf('pt1') + 4, snippet.length).split("'")[0];
+        track_array = p.track[index];
+        track = p.track[third_party_src_id] || track_array[Math.floor((Math.random() * 100) + 1) % track_array.length];
+        loop = setInterval(loop_check, wait_unit);
+        setTimeout(detect_xaxis, detect_unit);
+    }
+})();
+</script>
+
+<div id="tagrdiv" style="width: 0px; height: 0px; overflow: hidden; position: absolute; display: none;"><img src="./learn.下載" style="width: 0px; height: 0px; border: 0px; display: none;"></div></body></html>

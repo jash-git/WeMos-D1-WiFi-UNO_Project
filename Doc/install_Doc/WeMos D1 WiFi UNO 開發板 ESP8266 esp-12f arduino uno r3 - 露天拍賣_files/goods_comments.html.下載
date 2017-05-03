@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0094)http://goods.ruten.com.tw/item/goods_comments.php?id=21643123498036&k=7b5f5a80&o=1493314183&t= -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=Big5">
+    
+    <title>露天拍賣-台灣 NO.1 拍賣網站</title>
+    <link rel="alternate" media="only screen and (max-width: 640px)" href="https://m.ruten.com.tw/goods/detail.php?g=21643123498036">
+    <!--<base target="_blank">--><base href="." target="_blank">
+    <script type="text/javascript"><!--
+    var context = {"goods_host":"http:\/\/goods.ruten.com.tw","mobile_host":"https:\/\/m.ruten.com.tw","flag_show_doctype":true,"check_location":true};
+
+function empty_arr(el_arr) {
+  var el, i, len = el_arr.length;
+  for (i = 0; i < len; i++) {
+    el = el_arr.item(i);
+    while (el.lastChild) {
+      el.removeChild(el.lastChild);
+    }
+  }
+}
+
+function isInvalidInclude() {
+  var host_string = [context.goods_host, context.mobile_host].join('|');
+  return context.check_location === true &&
+    (window.location.href == window.top.location.href || host_string.indexOf(window.top.location.host) === -1);
+}
+
+var callMobileFn = function(){
+  var count = 0;
+  var checkFn = function() {
+    if(window.top.onDetailPageLoad) {
+      window.top.onDetailPageLoad(document);
+    } else if(count<5) {
+      setTimeout(checkFn, 200);
+      count ++;
+    }
+  };
+  return checkFn();
+};
+
+window.onload = function () {
+  var comment_frame, docH, D = document;;
+  if (isInvalidInclude()) {
+    empty_arr(document.getElementsByTagName('html'));
+  } else {
+    comment_frame = window.top.document.getElementById('embedded_goods_comments');
+
+        if (typeof old_comments_function === 'function') {
+      old_comments_function(context.flag_show_doctype, comment_frame);
+    }
+
+    comment_frame.setAttribute('height', 0);
+
+    docH = Math.max(
+      D.body.scrollHeight, D.documentElement.scrollHeight,
+      D.body.offsetHeight, D.documentElement.offsetHeight,
+      D.body.clientHeight, D.documentElement.clientHeight
+    );
+    comment_frame.setAttribute('height', docH + 200);
+  }
+  callMobileFn();
+};
+
+if (isInvalidInclude()) {
+  if (window.stop) {
+    window.stop();
+  } else {
+    document.execCommand('Stop');
+  }
+  empty_arr(document.getElementsByTagName('html'));
+}
+    --></script>
+    <style type="text/css"><!--
+      .product-spec {
+        text-align: left;
+      }
+      .product-spec table {
+        border-collapse: collapse;
+        color: #000;
+        border: 1px solid #DDDDDD;
+        margin: 0 auto 10px;
+        width: 799px;
+      }
+      .product-spec caption {
+        visibility: hidden;
+        height: 1px;
+      }
+      .product-spec th{
+        font-weight: bold;
+        background-color: #FFFFBB;
+        border-left: 1px solid #DDDDDD;
+        border-top: 1px solid #DDDDDD;
+        font-size: 13px;
+        padding: 8px;
+        width: 25%;
+      }
+      .product-spec td{
+        border-left: 1px solid #DDDDDD;
+        border-top: 1px solid #DDDDDD;
+        font-size: 13px;
+        padding: 8px;
+        width: 25%;
+      }
+    --></style>
+  </head>
+  <body marginwidth="0" marginheight="0">
+    
+<style type="text/css"><!--
+p.tidied-201610289424-6 {color: #000000;}
+ span.tidied-201610289424-5 {font-size: 18pt;}
+ span.tidied-201610289424-4 {font-family: inherit; background-color: #b6e1ff;}
+ span.tidied-201610289424-3 {font-size: large;}
+ span.tidied-201610289424-2 {font-size: 24pt;}
+ span.tidied-201610289424-1 {color: #ff00ff;}
+ span.tidied-201611213844-1 {color: #ff6600; font-size: 18pt;} span.tidied-201703135257-1 {color: #ff0000; background-color: #00ff00;}
+--></style><div>
+<p><span class="tidied-201610289424-2 tidied-201703135257-1"><strong><span class="tidied-201610289424-1">&nbsp;</span></strong></span></p>
+<div>
+<p><span class="tidied-201610289424-2"><strong><span class="tidied-201610289424-1">WeMos D1 WiFi UNO 開發板 基于ESP8266</span></strong></span></p>
+<p class="tidied-201610289424-6"><span class="tidied-201610289424-5"><strong><span class="tidied-201610289424-4"><span class="tidied-201610289424-3">引&#33050;位置改了</span></span></strong></span></p>
+<p class="tidied-201610289424-6"><span class="tidied-201610289424-5"><strong><span class="tidied-201610289424-4"><span class="tidied-201610289424-3">可以兼容nodemcu</span></span></strong></span></p>
+<p class="tidied-201610289424-6">&nbsp;</p>
+<p class="tidied-201610289424-6"></p>
+<p class="tidied-201610289424-6"><img src="./TB2DmFcuXXXXXbmXXXXXXXXXXXX_!!1125495922.jpg.下載" border="0" alt=""></p>
+<h3><span class="tidied-201611213844-1"><strong><img src="./TB24zZutVXXXXcZXpXXXXXXXXXX_!!1125495922.jpg.下載" border="0" alt=""></strong></span></h3>
+<h3 id="ch340-driver"><span class="tidied-201611213844-1"><strong>CH340 USB to UART&nbsp;driver</strong></span></h3>
+<p><span class="tidied-201611213844-1"><strong>https:刪//www.刪wemos.刪cc/downloads</strong></span></p>
+<p>&nbsp;</p>
+<table class="table"><tbody>
+<tr>
+<td><strong>Pin</strong></td>
+<td><strong>Function</strong></td>
+<td><strong>ESP-8266 Pin</strong></td>
+</tr>
+<tr>
+<td>TX</td>
+<td>TXD</td>
+<td>TXD</td>
+</tr>
+<tr>
+<td>RX</td>
+<td>RXD</td>
+<td>RXD</td>
+</tr>
+<tr>
+<td>A0</td>
+<td>Analog input, max 3.3V input</td>
+<td>A0</td>
+</tr>
+<tr>
+<td>D0</td>
+<td>IO</td>
+<td>GPIO16</td>
+</tr>
+<tr>
+<td>D1</td>
+<td>IO, SCL</td>
+<td>GPIO5</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>IO, SDA</td>
+<td>GPIO4</td>
+</tr>
+<tr>
+<td>D3</td>
+<td>IO, 10k Pull-up</td>
+<td>GPIO0</td>
+</tr>
+<tr>
+<td>D4</td>
+<td>IO, 10k Pull-up, BUILTIN_LED</td>
+<td>GPIO2</td>
+</tr>
+<tr>
+<td>D5</td>
+<td>IO, SCK</td>
+<td>GPIO14</td>
+</tr>
+<tr>
+<td>D6</td>
+<td>IO, MISO</td>
+<td>GPIO12</td>
+</tr>
+<tr>
+<td>D7</td>
+<td>IO, MOSI</td>
+<td>GPIO13</td>
+</tr>
+<tr>
+<td>D8</td>
+<td>IO, 10k Pull-down, SS</td>
+<td>GPIO15</td>
+</tr>
+<tr>
+<td>G</td>
+<td>Ground</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>5V</td>
+<td>5V</td>
+<td>-</td>
+</tr>
+<tr>
+<td>3V3</td>
+<td>3.3V</td>
+<td>3.3V</td>
+</tr>
+<tr>
+<td>RST</td>
+<td>Reset</td>
+<td>RST</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+  
+</body></html>

@@ -1,0 +1,14 @@
+﻿crtg_content_160600 = '';
+
+    (function()
+    {
+        var bodies = document.getElementsByTagName('body');
+        var img = document.createElement('img');
+        img.width = 0;
+        img.height = 0;
+        img.style.display = 'none';
+        img.async = true;
+        img.src = 'http://bw.scupio.com/ssp/rta3.aspx?pub=lRkZAgYwRi9O&cid=12619&size=160600&value=';
+        if (bodies.length > 0)
+            bodies[0].appendChild(img);
+    })();

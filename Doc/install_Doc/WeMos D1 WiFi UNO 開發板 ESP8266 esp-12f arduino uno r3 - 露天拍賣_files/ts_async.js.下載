@@ -1,0 +1,154 @@
+(function (window, namespace) {
+  var i, len,
+  tsClient,
+  host = window[namespace].host || 'https://ts.ruten.com.tw',
+  queue = window[namespace].queue,
+  slice = [].slice,
+
+  context = {
+    user_value: '',
+    data: []
+  },
+  getTsId = function () {
+    var parts = document.cookie.match(/_ts_id=([^;]+)/);
+    if (parts) {
+      if (parts[1].length <= 20 ) {
+        return '';
+      }
+      return unescape(parts[1]);
+    }
+    return '';
+  },
+  getNick = function () {
+    var parts = document.cookie.match(/bid_nick=([^;]+)/);
+    if (parts) {
+      return unescape(parts[1]);
+    }
+    return '';
+  },
+  getX = function () {
+    if( typeof(RT) != 'undefined' ) {
+      if( typeof(RT.context) != 'undefined' ){
+        var parts = RT.context.x;
+        if(parts) {
+          return unescape(parts);
+        }
+      return '';
+      } else { return ''; }
+    } else { return ''; }
+  },
+  getSF = function () {
+    if( typeof(RT) != 'undefined' ) {
+      if( typeof(RT.context) != 'undefined' ){
+        var parts = RT.context.search_found;
+        if(parts) {
+          return unescape(parts);
+        }
+      return '';
+      } else { return ''; }
+    } else { return ''; }
+  },
+  injectTsSender = function(type) {
+    var script = document.createElement('script'),
+    anchor = document.getElementsByTagName('script')[0];
+
+    api.onReceiveTsId = function() {
+      api.onReceiveTsId = undefined;
+      api.init();
+      sendLog(type);
+    };
+
+    script.type = 'text/javascript';
+    script.src = host + '/ts_sender.php';
+    script.async = 1;
+    anchor.parentNode.insertBefore(script, anchor);
+  },
+
+  sendLog = function (type) {
+    var log = [],
+    elem = document.createElement('div');
+
+    log.push(new Date().getTime(), '_ts_id=' + context.ts_id , 'type=' + type);
+    
+    if(context.nick.length) {
+      log.push('nick=' + context.nick);
+    }
+    
+    if (context.x.length) {
+      log.push('x=' + context.x);
+    }
+
+    if (context.sf.length) {
+      log.push('sf=' + context.sf);
+    }
+
+    if (context.data.length) {
+      log.push.apply(log, context.data);
+      context.data.length = 0;
+    }
+
+    if (document.referrer.length) {
+      log.push('ref=' + escape(document.referrer));
+    }
+
+    if (context.user_value.length) {
+      log.push('user_set=' + escape(context.user_value));
+    }
+
+    // Append a '&' at the end for meeting the parser rule.
+    log.push('');
+
+    elem.style.visibility = 'hidden';
+    elem.innerHTML = '<img src="' + host + '/log.gif?' + log.join('&') + '" />';
+  },
+
+  tsClient = function (apiName) {
+    var apiFunc = api[apiName],
+    args = slice.call(arguments, 1);
+
+    if (typeof apiFunc === 'function') {
+      apiFunc.apply(api, args);
+    }
+  },
+
+  api = {
+    init: function () {
+      context.ts_id = getTsId();
+      context.nick = getNick();
+      context.x = getX();
+      context.sf = getSF();
+    },
+    userSet: function (userValue) {
+      if (userValue.length > 100) {
+        userValue = userValue.substr(0, 100);
+      }
+      context.user_value = context.user_value + userValue + '&';
+    },
+    push: function (message) {
+      context.data.push(message);
+    },
+    run: function (event_type) {
+      switch(event_type) {
+        case 'event':
+          var type = 'ev';
+          break;
+        default:
+          var type = 'pv';
+          break;
+      }
+      if (context.ts_id === '') {
+        injectTsSender(type);
+      } else {
+        sendLog(type);
+      }
+    }
+  };
+
+
+  for (i = 0, len = queue.length; i < len; i++) {
+    tsClient.apply(this, queue[i]);
+  }
+
+  window[namespace] = tsClient;
+
+}(window, '_ts_js_fn'));

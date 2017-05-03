@@ -1,0 +1,140 @@
+function fn_load_ads_with_iframe_openX(conf_js_content, target_block, ad_supplier) {
+  var matches_ad_supplier = conf_js_content.match(/<!--\/\/ad_supplier_([\w]+)-->/i),
+    target = document.getElementsByClassName(target_block)[0];
+  if(matches_ad_supplier !== null) {
+    ad_supplier = matches_ad_supplier[1];
+  } else {
+    ad_supplier = '';
+  }
+  if(ad_supplier == 'google' && typeof flag_forbidden_googleAd !== "undefined") {
+    target.parentNode.removeChild(target);
+    return;
+  }
+  var oIf = createAdIframe(target_block, target);
+  if(!oIf) {
+    return;
+  };
+  var win = oIf.contentWindow;
+  var doc;
+  try {
+    doc = oIf.contentWindow.document;
+  } catch(e) {
+    oIf.src = "javascript:void((function(){var d=document;d.open();d.domain='" + document.domain + "';d.write('');d.close()})())";
+    doc = oIf.contentWindow.document;
+  }
+  var conf_js_google_page_url = '';
+  if(ad_supplier == 'google') {
+    conf_js_google_page_url = '<script type="text/javascript">google_page_url = "' + location.href + '";</script>';
+  }
+  var content = '<html><head></head><body style="margin:0;">' + conf_js_google_page_url + conf_js_content;
+
+  if(doc === null) {
+    return;
+  }
+  doc.write(content);
+
+  if(doc.all) {
+    var ifArr = doc.getElementsByTagName('iframe');
+    _check();
+    return;
+
+    function _check() {
+      if(ifArr.length) {
+        doc.close();
+        return;
+      }
+      setTimeout(_check, 100);
+    }
+  }
+  win.onload = _height;
+  doc.write('<script> document.close(); </sc' + 'ript><body></html>');
+
+  function _height() {
+    oIf.style.height = doc.body.scrollHeight + 'px';
+  }
+}
+
+function createAdIframe(suffix, target) {
+  var ifrm = document.createElement('iframe'),
+  width = target && target.getAttribute('data-width'),
+  height = target && target.getAttribute('data-height');
+
+  if(!target) return false;
+
+  ifrm.id = 'gads_' + suffix;
+  ifrm.setAttribute('frameborder', '0');
+  ifrm.setAttribute('border', '0');
+  ifrm.setAttribute('cellspacing', '0');
+  ifrm.setAttribute('scrolling', 'no');
+  ifrm.style.width = '100%';
+  ifrm.style.height = '100%';
+
+  if(width) {
+    target.style.width = width+'px';
+    target.style.margin = '0 auto';
+  }
+  if(height) {
+    target.style.height = height+'px';
+  }
+  target.appendChild(ifrm);
+  return ifrm;
+}
+
+function fn_load_special_ad_openX(slot, content) {
+  var arr = ['ad-float', 'ad-supertop'],
+    obj = $('.' + slot);
+  if($.inArray(slot, arr) < 0) {
+    return false;
+  };
+  if(obj.length == 0) {
+    if(slot === 'ad-supertop') {
+      $('body').prepend('<div class="' + slot + '" id="supertop-bar">' + content + '</div>');
+    } else {
+      $('body').append('<div class="' + slot + '">' + content + '</div>');
+    }
+    obj = $('.' + slot);
+  } else {
+    obj.html(content);
+  }
+  return true;
+}
+
+function show_ad(target_class, content) {
+  if(typeof target_class == 'undefined' || typeof content == 'undefined') {
+    return;
+  }
+  content = check_ad_content(target_class, content);
+  var matches = content.match(/<!--\/\/load_ad_with_iframe-->/i);
+  if(matches !== null) {
+    fn_load_ads_with_iframe_openX(content, target_class, matches);
+  } else if(fn_load_special_ad_openX(target_class, content)) {
+
+  } else {
+    $('.' + target_class).html(content);
+  }
+  $('.' + target_class).show();
+}
+
+function check_ad_content(slot, content) {
+  content = content.replace(/(<div([^>]+)class="area_data"([^>]*)>)/g, "$1" + "\n <input type='hidden' name='ad_slot' value='." + slot + "' />");
+  content = content.replace(/(var ox_swf = new FlashObject\([\w\s._'"]+[^);]+\);)/g, "$1" + "\n ox_swf.addVariable('adSlot', '." + slot + "');");
+
+  var arr = content.match(/(var ox_swf = new FlashObject\(([\w\s._'"\\\/,:]+)'(Advertisement)'([\w\s._'"\\\/,:]+)[^);]+\);)/g);
+  if(arr && arr.length > 0) {
+    $.each(arr, function(idx, ms) {
+      if(!window.flsNum) {
+        window.flsNum = 0
+      };
+      flsNum++;
+    });
+  }
+  return content;
+}
+
+function is_support_swf() {
+  var d = org.openx.SWFObjectUtil.getPlayerVersion();
+  if(d && d.major && Number(d.major) != 0) {
+    return true;
+  }
+  return false;
+}
