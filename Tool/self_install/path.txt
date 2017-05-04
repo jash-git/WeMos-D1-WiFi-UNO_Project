@@ -1,0 +1,3 @@
+﻿path:
+	C:\Users\RD\AppData\Local\Arduino15
+	C:\Users\RD\AppData\Roaming\Arduino15	
