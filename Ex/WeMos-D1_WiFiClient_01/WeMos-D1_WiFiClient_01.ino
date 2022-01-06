@@ -8,10 +8,10 @@
 
 #include <ESP8266WiFi.h>
 
-const char* ssid     = "jash.net-G-WEP";
-const char* password = "jashasd700502";
+const char* ssid     = "jash_TStar";
+const char* password = "asd700502";
 
-const char* host = "192.168.104.4";
+const char* host = "192.168.0.191";
 const char* streamId   = "....................";
 const char* privateKey = "....................";
 
@@ -57,7 +57,7 @@ void loop() {
   }
   
   // We now create a URI for the request
-  String url = "/val.php";
+  String url = "/php_code/val.php";
   url += "?string=";
   url += value;
   
@@ -86,4 +86,3 @@ void loop() {
   Serial.println();
   Serial.println("closing connection");
 }
-
